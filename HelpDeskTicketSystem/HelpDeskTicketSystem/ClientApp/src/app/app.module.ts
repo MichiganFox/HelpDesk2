@@ -22,7 +22,8 @@ import { FavoriteComponent } from './Components/favorite/favorite.component';
     FetchDataComponent,
 
     TicketComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

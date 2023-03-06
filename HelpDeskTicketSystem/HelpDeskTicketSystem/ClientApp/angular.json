@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "HelpDeskTicketSystem"
+  "defaultProject": "HelpDeskTicketSystem",
+  "cli": {
+    "analytics": false
+  }
 }
