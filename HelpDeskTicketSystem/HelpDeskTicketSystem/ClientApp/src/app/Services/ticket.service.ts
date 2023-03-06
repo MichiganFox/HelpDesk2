@@ -13,4 +13,7 @@ export class TicketService {
   GetTickets():Observable <Ticket[]>{
     return this.http.get<Ticket[]>(`${this.baseUrl}api/Ticket/GetTickets`, {});
   }
+  // createTicket(newTicket:Ticket):Observable<Ticket>{
+  //   return this.http.post<Ticket>(`${this.baseUrl}api/Ticket? id`)
+  // }
 }

@@ -9,7 +9,8 @@ import {FormsModule} from '@angular/forms';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
-
+ 
+  
   Tickets: Ticket[]=[]
   constructor(private ticketService:TicketService ) { }
 
@@ -18,6 +19,8 @@ export class TicketComponent implements OnInit {
       console.log(response);
       this.Tickets = response;
     });
+
+  
     
   
 

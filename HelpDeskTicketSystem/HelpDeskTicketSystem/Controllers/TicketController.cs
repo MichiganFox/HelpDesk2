@@ -16,5 +16,7 @@ namespace HelpDeskTicketSystem.Controllers
             return dbContext.Tickets.ToList();
         }
 
+       
+
     }
 }
