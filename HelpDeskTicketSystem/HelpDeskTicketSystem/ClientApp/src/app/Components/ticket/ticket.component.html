@@ -1,11 +1,14 @@
 <div *ngFor="let a of Tickets">
+    <h1>Welcome to the Help Desk Ticket Center</h1>
+    <h3><button >Click here to create a ticket</button></h3>
+
     <p>{{a.id}}</p>
-    <p>{{a.userid}}</p>
+    <p>{{a.userId}}</p>
     <p>{{a.email}}</p>
-    <p>{{a.datesubmitted}}</p>
-    <p>{{a.datecompleted}}</p>
-    <p>{{a.subjectbrief}}</p>
-    <p>{{a.fullissue}}</p>
+    <p>{{a.dateSubmitted | date}}</p>
+    <p>{{a.dateCompleted | date}}</p>
+    <p>{{a.subjectBrief}}</p>
+    <p>{{a.fullIssue}}</p>
     <p>{{a.open}}</p>
 
 </div>

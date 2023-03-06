@@ -1,11 +1,12 @@
-export interface Ticket {
-id:number;
-userid:string;
-email:string;
-datesubmitted:Date;
-datecompleted:Date;
-subjectbrief:string;
-fullissue:string;
-open:boolean;
-}
 
+
+export interface Ticket {
+    id:number;
+    userId:string;
+    email:string;
+    dateSubmitted:Date;
+    dateCompleted:Date;
+    subjectBrief:string;
+    fullIssue:string;
+    open:boolean;
+    }
