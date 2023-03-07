@@ -11,6 +11,8 @@ public partial class Ticket
 
     public string Email { get; set; } = null!;
 
+    public string? Priority { get; set; }
+
     public DateTime? DateSubmitted { get; set; }
 
     public DateTime? DateCompleted { get; set; }

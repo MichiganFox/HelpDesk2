@@ -13,6 +13,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TicketComponent } from './Components/ticket/ticket.component';
 import { FavoriteComponent } from './Components/favorite/favorite.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { FavoriteComponent } from './Components/favorite/favorite.component';
 
     TicketComponent,
     FavoriteComponent,
-
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,9 +39,6 @@ import { FavoriteComponent } from './Components/favorite/favorite.component';
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents:[
-    TicketComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

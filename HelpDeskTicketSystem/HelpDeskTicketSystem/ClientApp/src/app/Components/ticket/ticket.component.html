@@ -1,16 +1,14 @@
 <h1>Welcome to the Help Desk Ticket Center</h1>
-<div *ngFor="let a of Tickets" class="row">
-  <!-- <h3><button>Click here to create a ticket</button></h3> -->
-  <button data-bs-toggle="collapse" data-bs-target="#toggle">
-    <p>{{ a.dateSubmitted | date }} - {{ a.subjectBrief }} - {{ a.open }}</p>
-    <p>{{ a.dateCompleted | date }}</p>
-  </button>
-  <div id="toggle" class="collapse">
-    <!-- <p>{{ a.id }}</p> -->
-    <p>{{ a.userId }} {{ a.email }}</p>
-    <p>{{ a.fullIssue }}</p>
+<div *ngFor="let a of Tickets; index as i" class="row">
+
+  <p class="card"  (click)="select(i)"> Ticket #{{i}} <br> User: {{ a.userId }} <br> {{ a.priority }} <br>Subject: {{ a.subjectBrief }}</p>
+  <div  *ngIf="i==selectedIndex">
+  <p>   Date Submitted: {{ a.dateSubmitted }}<br>email response to: {{ a.email }} </p>
+  <p>{{ a.fullIssue }}</p>
   </div>
+
 </div>
+
 
 
 <!-- <p>Ticket works!</p> -->

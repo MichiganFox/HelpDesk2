@@ -34,8 +34,11 @@ export class TicketComponent implements OnInit {
         this.GetTickets();
       })
     }
+    selectedIndex: number=-1;
 
-
+    select(index:number) {
+      this.selectedIndex = index;
+    }
 
 
 
