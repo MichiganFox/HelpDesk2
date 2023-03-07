@@ -19,8 +19,14 @@ export class TicketComponent implements OnInit {
     this.GetTickets();
   }
 
-
-    GetTickets():void{
+CreateTicket():void{
+      this.ticketService.CreateTicket(this.newTicket).subscribe((response:Ticket) =>{
+        console.log(response);
+        this.GetTickets();
+      })
+    }
+    
+    GetTickets(){
       this.ticketService.GetTickets().subscribe((response:Ticket[]) =>{
         console.log(response);
         this.Tickets = response;
@@ -28,18 +34,14 @@ export class TicketComponent implements OnInit {
     }
 
 
-    CreateTicket():void{
-      this.ticketService.CreateTicket(this.newTicket).subscribe((response:Ticket) =>{
-        console.log(response);
-        this.GetTickets();
-      })
-    }
+
+
     selectedIndex: number=-1;
 
     select(index:number) {
       this.selectedIndex = index;
     }
-    
+
 
     unselect(index:number) {
       this.selectedIndex = -1;

@@ -21,20 +21,13 @@ public partial class TicketDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        //MIKES BELOW
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-D4EQCD0;Database=TicketDB;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=True");
-    
-    //Windows
-    // => optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=TicketDB; Integrated Security=SSPI;Encrypt=false;TrustServerCertificate=True;");
-    
-    //MAC
-    // => optionsBuilder.UseSqlServer("Server=localhost,1433; Initial Catalog=TicketDB; User ID=SA; Password=EnterPasswordHere1; TrustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=TicketDB;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Favorite>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Favorite__3214EC27A2F9AB14");
+            entity.HasKey(e => e.Id).HasName("PK__Favorite__3214EC276EF7B9E5");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.DateAdded).HasColumnType("date");
@@ -44,12 +37,12 @@ public partial class TicketDbContext : DbContext
 
             entity.HasOne(d => d.Ticket).WithMany(p => p.Favorites)
                 .HasForeignKey(d => d.TicketId)
-                .HasConstraintName("FK__Favorites__Ticke__4BAC3F29");
+                .HasConstraintName("FK__Favorites__Ticke__6383C8BA");
         });
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC2746EC4E1A");
+            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC27B575A5CD");
 
             entity.ToTable("Ticket");
 

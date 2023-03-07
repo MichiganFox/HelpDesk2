@@ -10,25 +10,25 @@ namespace HelpDeskTicketSystem.Controllers
     {
         TicketDbContext dbContext = new TicketDbContext();
 
-        [HttpGet("GetTickets")]
+        [HttpGet()]
         public List<Ticket> GetTickets()
         {
             return dbContext.Tickets.ToList();
         }
 
-        [HttpPost("CreateTicket")]
+        [HttpPost()]
         public Ticket CreateTicket(string _UserId, string _Email, string _Priority, DateTime _DateSubmitted, DateTime _DateCompleted, string _SubjectBrief, string _FullIssue, bool _Open)
         {
             Ticket newTicket = new Ticket()
             {
                 UserId = _UserId,
                 Email = _Email,
-                Priority = _Priority,
+                Priority= _Priority,
                 DateSubmitted = _DateSubmitted,
                 DateCompleted = _DateCompleted,
                 SubjectBrief = _SubjectBrief,
                 FullIssue = _FullIssue,
-                Open = true,
+                Open = _Open
 
             };
             dbContext.Tickets.Add(newTicket);

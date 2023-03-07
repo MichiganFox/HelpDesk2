@@ -30,21 +30,29 @@
 
     <p>Enter email</p>
     <input type="text" [(ngModel)]="newTicket.email"/>
-    
+
     <p>Enter brief description of the issue (limit 100 characters)</p>
     <input type="text" [(ngModel)]="newTicket.subjectBrief"/>
 
     <p>Enter the full issue </p>
     <input type="text" [(ngModel)]="newTicket.fullIssue"/>
     <br><br>
-    
+
     <p>Enter the date Submitted</p>
     <input type="date" [(ngModel)]="newTicket.dateSubmitted"/>
-    <button (click)="CreateTicket()">Generate a Ticket</button>
-    
+
+
     <p>Enter the date completed</p>
     <input type="date" [(ngModel)]="newTicket.dateCompleted"/>
 
+    <p>Open or closed</p>
+    <select name="openOrClosed" [(ngModel)]="newTicket.open">
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+
+
+    <button (click)="CreateTicket()">Generate a Ticket</button>
   </div>
 </div>
 
@@ -166,4 +174,4 @@ aria-hidden="true"
 
 
 
-   
+
