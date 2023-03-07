@@ -11,7 +11,7 @@ import {FormsModule} from '@angular/forms';
 })
 export class TicketComponent implements OnInit {
 
-  newTicket:Ticket={} as Ticket;
+  newTicket:Ticket= {} as Ticket;
   Tickets: Ticket[]=[]
   constructor(private ticketService:TicketService ) { }
 
@@ -38,6 +38,11 @@ export class TicketComponent implements OnInit {
 
     select(index:number) {
       this.selectedIndex = index;
+    }
+    
+
+    unselect(index:number) {
+      this.selectedIndex = -1;
     }
 
 

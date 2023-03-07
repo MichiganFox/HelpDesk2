@@ -21,7 +21,14 @@ public partial class TicketDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        //MIKES BELOW
         => optionsBuilder.UseSqlServer("Server=DESKTOP-D4EQCD0;Database=TicketDB;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=True");
+    
+    //Windows
+    // => optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=TicketDB; Integrated Security=SSPI;Encrypt=false;TrustServerCertificate=True;");
+    
+    //MAC
+    // => optionsBuilder.UseSqlServer("Server=localhost,1433; Initial Catalog=TicketDB; User ID=SA; Password=EnterPasswordHere1; TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

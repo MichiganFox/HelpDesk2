@@ -1,14 +1,52 @@
+
 <h1>Welcome to the Help Desk Ticket Center</h1>
 <div *ngFor="let a of Tickets; index as i" class="row">
 
-  <p class="card"  (click)="select(i)"> Ticket #{{i}} <br> User: {{ a.userId }} <br> {{ a.priority }} <br>Subject: {{ a.subjectBrief }}</p>
-  <div  *ngIf="i==selectedIndex">
+  <p class="card backgrounds"  (click)="select(i)"> Ticket #{{i+1}} <br> User: {{ a.userId }} <br> {{ a.priority }} <br>Subject: {{ a.subjectBrief }}</p>
+  <div  *ngIf="i==selectedIndex" class="offset-1 col-11">
   <p>   Date Submitted: {{ a.dateSubmitted }}<br>email response to: {{ a.email }} </p>
   <p>{{ a.fullIssue }}</p>
+  <p class="close" (click)="unselect(i)">Close</p>
   </div>
 
 </div>
 
+<div class="row">
+  <button data-bs-toggle="collapse" data-bs-target="#demo">
+    Create a new Ticket
+  </button>
+
+  <div id="demo" class="collapse">
+    <p>Enter user Id</p>
+    <input type="text" [(ngModel)]="newTicket.userId"/>
+
+    <p>Select the priority level</p>
+    <select name="Priority" [(ngModel)]="newTicket.priority">
+      <option value="1">Low Priority</option>
+      <option value="2">Moderate Priority</option>
+      <option value="3">High Priority</option>
+      <option value="4">Critical Priority</option>
+    </select>
+
+    <p>Enter email</p>
+    <input type="text" [(ngModel)]="newTicket.email"/>
+    
+    <p>Enter brief description of the issue (limit 100 characters)</p>
+    <input type="text" [(ngModel)]="newTicket.subjectBrief"/>
+
+    <p>Enter the full issue </p>
+    <input type="text" [(ngModel)]="newTicket.fullIssue"/>
+    <br><br>
+    
+    <p>Enter the date Submitted</p>
+    <input type="date" [(ngModel)]="newTicket.dateSubmitted"/>
+    <button (click)="CreateTicket()">Generate a Ticket</button>
+    
+    <p>Enter the date completed</p>
+    <input type="date" [(ngModel)]="newTicket.dateCompleted"/>
+
+  </div>
+</div>
 
 
 <!-- <p>Ticket works!</p> -->
@@ -128,180 +166,4 @@ aria-hidden="true"
 
 
 
-    <!-- <button type="button" (click)="#CreateTicketModal" class="btn btn-primary" data-toggle="#CreateTicketModal" data-target="#CreateTicketModal">
-      Create A New Help Ticket
-    </button> -->
-    <!-- <form>
-      <input type="text" name="userId">
-
-      <input type="email" name="Email">
-
-      <input type="text" name="subjectBrief">
-
-    <input type="text" name="fullIssue">
-
-    <input type="text" name="userId">
-
-
-
-  </form>
-  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#CreateTicketModal" href="#CreateTicketModal"></a></li>        </ul>
-  Modal -->
-  <!-- <div
-    class="modal fade"
-    id="CreateTicketModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-    >
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="CreateTicketModal">Enter a Help Ticket</h5>
-          <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <h4 id="flavorText" class="form-text">
-                Fill out the form below and I'll get back to you as soon as
-                possible. Don't worry, it won't take long.
-              </h4>
-              <label for="userId">User Id</label>
-              <input
-              type="text"
-              class="form-control"
-              id="InputUserID1"
-              aria-describedby="UserIdHelp"
-              placeholder="Enter your User ID"
-              />
-              <br />
-
-              <label for="InputCritcal">Select the priority level: </label>
-              <select name="Priority">
-                <option value="1">Low Priority</option>
-                <option value="2">Moderate Priority</option>
-                <option value="3">High Priority</option>
-                <option value="4">Critical Priority</option>
-              </select>
-              <br />
-              <br />
-
-              <p>
-                <label for="InputEmail1">Email address*</label>
-                <input
-                type="email"
-                class="form-control"
-                id="InputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email address"
-                />
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                <!-- <br />
-                  <label for="dateSubmittedLabel"
-                  >`Date Submitted: -->
-                  <!-- ${{ a.dateSubmitted | date }}` -->
-                  <!-- </label
-                    >
-                    <br />
-                  </p>
-
-                  <label for="InputSubjectBrief"
-              >Please provide a brief description of the issue you are
-              having.</label
-              >
-              <input
-              type="text"
-              class="form-control"
-              id="InputSubjectBrief"
-              aria-describedby="SubjectBriefHelp"
-              placeholder="100 characters limit"
-              />
-              <br />
-
-              <label for="InputFullIssue1"
-              >Please describe the issue you are having in full.
-            </label>
-            <input
-            type="text"
-            class="form-control"
-            id="InputFullIssue"
-            aria-describedby="FullIssueHelp"
-            placeholder="Please provide information as to what system is effected, the programs used and if it is effecting just you or other users. Limit 700 characters."
-            />
-            <br />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-      </div>
-    </div>
-  </div> -->
-  <!-- </div> -->
-
-  <!-- Button trigger modal -->
-
-  <!-- Modal -->
-  <!-- <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-    >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">...</div>
-        <div class="modal-footer">
-          <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-          >
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div> -->
-<!-- </div> -->
-
-<div class="row">
-  <button data-bs-toggle="collapse" data-bs-target="#demo">
-    Create a new Ticket
-  </button>
-
-  <div id="demo" class="collapse">
-    <p>Enter user Id</p>
-    <input type="text" [(ngModel)]="newTicket.userId"/>
-    <p>Enter email</p>
-    <input type="text" [(ngModel)]="newTicket.email"/>
-    <p>Enter subject brief</p>
-    <input type="text" [(ngModel)]="newTicket.subjectBrief"/>
-    <p>Enter full issue</p>
-    <input type="text" [(ngModel)]="newTicket.fullIssue"/>
-    <br><br>
-    
-    <button (click)="CreateTicket()">Submit Ticket</button>
-  </div>
-</div>
+   

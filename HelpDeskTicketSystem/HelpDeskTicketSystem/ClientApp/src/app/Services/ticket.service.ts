@@ -14,6 +14,6 @@ export class TicketService {
     return this.http.get<Ticket[]>(`${this.baseUrl}api/Ticket/GetTickets`, {});
   }
   CreateTicket(newTicket:Ticket):Observable<Ticket>{
-    return this.http.post<Ticket>(`${this.baseUrl}api/Ticket?_=${newTicket.userId}&_email=${newTicket.email}&_dateSubmitted=${newTicket.dateSubmitted}&_dateCompleted=${newTicket.dateCompleted}&_subjectBrief${newTicket.subjectBrief}&_fullIssue${newTicket.fullIssue}&_open${newTicket.open}`,{});
+    return this.http.post<Ticket>(`${this.baseUrl}api/Ticket?_=${newTicket.userId}&_email=${newTicket.email}&_priority=${newTicket.priority}&_dateSubmitted=${newTicket.dateSubmitted}&_dateCompleted=${newTicket.dateCompleted}&_subjectBrief${newTicket.subjectBrief}&_fullIssue${newTicket.fullIssue}&_open${newTicket.open}`,{});
   }
 }

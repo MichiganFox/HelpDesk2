@@ -2,3 +2,7 @@
     text-decoration: none;
     color: black
 };
+.close{
+    text-decoration: underline;
+    color: blue;
+}
