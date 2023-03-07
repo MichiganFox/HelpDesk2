@@ -23,7 +23,7 @@ import { FavoriteComponent } from './Components/favorite/favorite.component';
 
     TicketComponent,
     FavoriteComponent,
-    
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,6 +38,9 @@ import { FavoriteComponent } from './Components/favorite/favorite.component';
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    TicketComponent
+  ]
 })
 export class AppModule { }
