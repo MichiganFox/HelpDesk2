@@ -5,10 +5,13 @@
 
   <p class="card backgrounds"  (click)="select(i)"> Ticket #{{i+1}} <br> User: {{ a.userId }} <br> {{ a.priority }} <br>Subject: {{ a.subjectBrief }}</p>
   <div  *ngIf="i==selectedIndex" class="offset-1 col-11">
-  <p>   Date Submitted: {{ a.dateSubmitted }}<br>email response to: {{ a.email }} </p>
+  <p>   Date Submitted: {{ a.dateSubmitted | date}}<br>email response to: {{ a.email }} </p>
   <p>{{ a.fullIssue }}</p>
-  <p (click)="DeleteTicket(a.id)">Delete</p>
-  <p class="close" (click)="unselect(i)">Close</p>
+  <p>Enter resolution for ticket</p>
+  <input type="text" />
+  <button (click)="DeleteTicket(a.id)">Resolve Ticket</button>
+  <br>
+  <button (click)="unselect(i)">Close</button>
   <button (click)="AddToFav(a.id)">Add to Favs</button>
   <!-- <button (click)="DeleteTicket()">x</button> -->
   </div>
@@ -65,120 +68,3 @@
 
 
 <!-- <p>Ticket works!</p> -->
-
-<!-- BUtton for trigger modal -->
-<button
-type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="CreateTicketModal"
-  >
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div
-class="modal fade"
-id="CreateTicketModal"
-tabindex="-1"
-aria-labelledby="CreateTicketModalLabel"
-aria-hidden="true"
->
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title" fs-5 id="CreateTicketModal">
-          Enter a Help Ticket
-        </h1>
-        <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="modal"
-        aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">...</div>
-      <form>
-        <div class="form-group">
-          <h4 id="flavorText" class="form-text">
-            Fill out the form below and I'll get back to you as soon as
-            possible. Don't worry, it won't take long.
-          </h4>
-          <label for="userId">User Id</label>
-          <input
-          type="text"
-          class="form-control"
-          id="InputUserID1"
-          aria-describedby="UserIdHelp"
-          placeholder="Enter your User ID"
-          />
-          <br/>
-          <label for="InputCritcal">Select the priority level: </label>
-          <select name="Priority">
-            <option value="1">Low Priority</option>
-            <option value="2">Moderate Priority</option>
-            <option value="3">High Priority</option>
-            <option value="4">Critical Priority</option>
-          </select>
-          <br/>
-          <br/>
-          <p>
-            <label for="InputEmail1">Email address*</label>
-            <input
-            type="email"
-                class="form-control"
-                id="InputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email address"
-                />
-                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                 <br />
-                  <!-- <label for="dateSubmittedLabel"
-                  >`Date Submitted:
-                   ${{ a.dateSubmitted | date }}`</label> -->
-                    <br />
-                  </p>
-
-                  <label for="InputSubjectBrief"
-                  >Please provide a brief description of the issue you are
-                  having.</label
-                  >
-                  <input
-                  type="text"
-                  class="form-control"
-                  id="InputSubjectBrief"
-                  aria-describedby="SubjectBriefHelp"
-                  placeholder="100 characters limit"
-                  />
-                  <br />
-
-                  <label for="InputFullIssue1"
-                  >Please describe the issue you are having in full.
-                </label>
-                <input
-                type="text"
-                class="form-control"
-                id="InputFullIssue"
-                aria-describedby="FullIssueHelp"
-                placeholder="Please provide information as to what system is effected, the programs used and if it is effecting just you or other users. Limit 700 characters."
-                />
-                <br />
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">
-              Save changes
-            </button>
-          </div>
-        </div>
-      </div>
-
-
-
-
