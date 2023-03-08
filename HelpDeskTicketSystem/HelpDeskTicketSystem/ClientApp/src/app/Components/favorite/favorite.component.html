@@ -1,1 +1,47 @@
-<p>favorite works!</p>
+<h1>Welcome to the Help Desk Ticket Center</h1>
+<div *ngFor="let a of Favorites; index as i" class="row">
+<p>{{a.id}}</p>
+<p>{{a.uid}}</p>
+<p>{{a.dateAdded | date }}</p>
+<p>{{a.ticketId}}</p>
+</div>
+
+<div class="row">
+  <button data-bs-toggle="collapse" data-bs-target="#demo">
+    Create a new favorite
+  </button>
+
+  <div id="demo" class="collapse">
+    <!-- <p>Enter ticket Id</p>
+    <input type="text" [(ngModel)]="newFavorite.id"/> -->
+
+    <p>Enter User Id</p>
+    <input type="text" [(ngModel)]="newFavorite.uid">
+
+    <p>Enter date added</p>
+    <input type="text" [(ngModel)]="newFavorite.dateAdded"/>
+
+    <p>Enter the ticket ID</p>
+    <input type="text" [(ngModel)]="newFavorite.ticketId"/>
+
+    <p>Enter the full issue </p>
+    <input type="text" [(ngModel)]="newFavorite.ticket"/>
+    <br><br>
+<!--
+    <p>Enter the date Submitted</p>
+    <input type="date" [(ngModel)]="newTicket.dateSubmitted"/>
+
+
+    <p>Enter the date completed</p>
+    <input type="date" [(ngModel)]="newTicket.dateCompleted"/>
+
+    <p>Open or closed</p>
+    <select name="openOrClosed" [(ngModel)]="newTicket.open"> -->
+      <!-- <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+
+
+    <button (click)="CreateTicket()">Generate a Ticket</button> -->
+  </div>
+</div>

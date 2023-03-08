@@ -1,4 +1,5 @@
-
+<p>Enter userID</p>
+<input type="text" [(ngModel)]="UserId"/>
 <h1>Welcome to the Help Desk Ticket Center</h1>
 <div *ngFor="let a of Tickets; index as i" class="row">
 
@@ -8,12 +9,10 @@
   <p>{{ a.fullIssue }}</p>
   <p (click)="DeleteTicket(a.id)">Delete</p>
   <p class="close" (click)="unselect(i)">Close</p>
+  <button (click)="AddToFav(a.id)">Add to Favs</button>
   <!-- <button (click)="DeleteTicket()">x</button> -->
   </div>
 </div>
-
-
-
 
 
 

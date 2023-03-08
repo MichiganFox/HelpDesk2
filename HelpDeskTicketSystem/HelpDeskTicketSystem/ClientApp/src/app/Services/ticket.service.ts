@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Favorite } from '../Models/favorite';
 import { Ticket } from '../Models/ticket';
 
 @Injectable({
@@ -21,5 +22,8 @@ export class TicketService {
   DeleteTicket(ticketId: number){
     return this.http.delete(`${this.baseUrl + this.endpoint}/delete/${ticketId}`);
   }
+  // BookmarkTicket(newFavorite:Favorite){
+  //   return this.http.post<Favorite>(`${this.baseUrl + this.endpoint}/Favorite/${Favorite.ticketid}`)
+  // }
 
 }

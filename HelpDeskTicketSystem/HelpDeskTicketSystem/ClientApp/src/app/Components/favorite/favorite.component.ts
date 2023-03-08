@@ -9,14 +9,32 @@ import { FavoriteService } from 'src/app/Services/favorite.service';
 })
 export class FavoriteComponent implements OnInit {
 
-  Fav: Favorite[]=[];
-  constructor(private FavItem:FavoriteService) { }
+  Favorites: Favorite[]=[];
+  newFavorite: Favorite={} as Favorite;
+  loginInfo: string[]=[];
+
+  constructor(private favoriteService:FavoriteService) { }
 
   ngOnInit(): void {
-    this.FavItem.GetFavorites().subscribe((response:Favorite[]) =>{
-      console.log(response);
-      this.Fav = response;
-    });
+    this.GetFavorites();
+    }
+
+    GetFavorites(){
+      this.favoriteService.GetFavorites().subscribe((response:Favorite[]) =>{
+        console.log(response);
+        this.Favorites = response;
+      });
+    }
+
+    Login(){
+      this.favoriteService.Login().subscribe((response:string[])=>{
+        this.loginInfo=response;
+      })
+    }
+
+    // GetUserFavorites(){
+    //   this.favoriteService.GetUserFavorites().subscribe(())
+    // }
 
 }
-}
+

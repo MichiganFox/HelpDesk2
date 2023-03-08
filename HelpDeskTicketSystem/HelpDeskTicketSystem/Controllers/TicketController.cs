@@ -49,6 +49,17 @@ namespace HelpDeskTicketSystem.Controllers
 
             return result;
 
+        }
+
+        [HttpPost("Favorite/{ticketId}")]
+        public Favorite BookmarkTicket(int _id, string _UserId)
+        {
+            Favorite newFavorite = new Favorite();
+            dbContext.Favorites.Where(t => t.Uid == _UserId);
+            dbContext.Favorites.Add(newFavorite);
+            dbContext.SaveChanges();
+
+            return newFavorite;
 
         }
 
