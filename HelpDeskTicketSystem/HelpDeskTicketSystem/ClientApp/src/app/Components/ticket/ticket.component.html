@@ -6,10 +6,18 @@
   <div  *ngIf="i==selectedIndex" class="offset-1 col-11">
   <p>   Date Submitted: {{ a.dateSubmitted }}<br>email response to: {{ a.email }} </p>
   <p>{{ a.fullIssue }}</p>
+  <p (click)="DeleteTicket(a.id)">Delete</p>
   <p class="close" (click)="unselect(i)">Close</p>
+  <!-- <button (click)="DeleteTicket()">x</button> -->
   </div>
-
 </div>
+
+
+
+
+
+
+
 
 <div class="row">
   <button data-bs-toggle="collapse" data-bs-target="#demo">

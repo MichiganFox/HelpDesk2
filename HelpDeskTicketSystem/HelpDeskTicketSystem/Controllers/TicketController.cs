@@ -37,7 +37,21 @@ namespace HelpDeskTicketSystem.Controllers
             return newTicket;
         }
 
-       
+
+        [HttpDelete("delete/{id}")]
+        public Ticket DeleteTicket(int id) //, int userId
+        {
+            Ticket result = null;
+
+            result = dbContext.Tickets.FirstOrDefault(t => t.Id == id);
+            dbContext.Tickets.Remove(result);
+            dbContext.SaveChanges();
+
+            return result;
+
+
+        }
+
 
     }
 }

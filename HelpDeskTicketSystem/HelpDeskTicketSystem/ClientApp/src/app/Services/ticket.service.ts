@@ -8,6 +8,8 @@ import { Ticket } from '../Models/ticket';
 })
 export class TicketService {
 
+  endpoint: string = "api/Ticket";
+
   constructor(@Inject ('BASE_URL') private baseUrl: string, private http:HttpClient) { }
 
   GetTickets():Observable <Ticket[]>{
@@ -16,4 +18,8 @@ export class TicketService {
   CreateTicket(newTicket:Ticket):Observable<Ticket>{
     return this.http.post<Ticket>(`${this.baseUrl}api/Ticket?_userId=${newTicket.userId}&_email=${newTicket.email}&_priority=${newTicket.priority}&_dateSubmitted=${newTicket.dateSubmitted}&_dateCompleted=${newTicket.dateCompleted}&_subjectBrief=${newTicket.subjectBrief}&_fullIssue=${newTicket.fullIssue}&_open=${newTicket.open}`,{});
   }
+  DeleteTicket(ticketId: number){
+    return this.http.delete(`${this.baseUrl + this.endpoint}/delete/${ticketId}`);
+  }
+
 }
