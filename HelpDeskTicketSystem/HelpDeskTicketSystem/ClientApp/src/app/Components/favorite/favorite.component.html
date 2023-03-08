@@ -3,7 +3,10 @@
   <option *ngFor="let userName of loginInfo" value="{{userName}}"> {{userName}}</option>
 </select>
 <div *ngFor="let t of Tickets">
-  <p>issue {{t.fullIssue}}</p>
+  <p>User Id: {{t.userId}}</p>
+  <p>Date: {{t.dateSubmitted}}</p>
+  <p>Issue: {{t.fullIssue}}</p>
+
 
 </div>
 <div *ngFor="let a of Favorites; index as i" class="row">
