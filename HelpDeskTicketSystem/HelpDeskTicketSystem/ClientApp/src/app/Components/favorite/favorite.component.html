@@ -1,12 +1,11 @@
 <h1>Welcome to the Help Desk Ticket Center</h1>
 <select (change)="GetUserFavorites($event)">
   <option *ngFor="let userName of loginInfo" value="{{userName}}"> {{userName}}</option>
+</select>
 <div *ngFor="let t of Tickets">
-  <p>{{t.fullIssue}}</p>
+  <p>issue {{t.fullIssue}}</p>
 
 </div>
-
-</select>
 <div *ngFor="let a of Favorites; index as i" class="row">
 <p>{{a.id}}</p>
 <p>{{a.uid}}</p>

@@ -37,12 +37,11 @@ export class FavoriteComponent implements OnInit {
     }
 
 
-    GetUserFavorites(uid:Event){
+    GetUserFavorites(uid:Event){        
         if ((uid.target as HTMLInputElement).value){
        this.favoriteService.GetUserFavorites((uid.target as HTMLInputElement).value).subscribe((response:Ticket[])=>{
-        this.Tickets = response;
-       
-    
+        this.Tickets = response;   
+           
       });}
     }
 

@@ -23,5 +23,6 @@ public partial class Ticket
 
     public bool? Open { get; set; }
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<Favorite> Favorites { get; } = new List<Favorite>();
 }

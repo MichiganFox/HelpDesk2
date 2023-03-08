@@ -49,11 +49,10 @@ namespace HelpDeskTicketSystem.Controllers
             //click event to call the list of tickets when someone selects the user from the dropdown list
             //make method to call this endpoint, favorite service
 
-            foreach (Favorite f in dbContext.Favorites.Where(f => f.Uid == _uid))
+            foreach (Favorite f in dbContext.Favorites.Where(f => f.Uid == _uid).ToList())
             {
                 fList.Add(dbContext.Tickets.FirstOrDefault(t => t.Id == f.TicketId));
             }
-
             return fList;
         }
 
