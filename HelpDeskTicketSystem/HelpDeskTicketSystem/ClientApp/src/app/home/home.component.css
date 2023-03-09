@@ -1,0 +1,12 @@
+.pimg {
+    background-image: url('https://linksharing.samsungcloud.com/ls/public/v1/links/1678382177703LxlTOmK/contents/1bca0cd0be9e11ed8f8f2a075fa2a04a/resized/1280?signature=lE6hgeKmvdOMuKaC71JBVV9ey0x6BqfKUwo1CcYQkhfsJRipdenZluHZtpEQ4zfNN4F000WdXnPStu76m8UbqtDbJ-UwGl6Mhh6F4rm4AUvtMrXxrX602IwvfTlRh5jCC9MUccQkUthHl1YT4clUMQ&storageType=file');
+    overflow: hidden; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    color:white;
+    height:100%;
+    width:100%
+  }
+  .pip{
+    color:black;
+  }

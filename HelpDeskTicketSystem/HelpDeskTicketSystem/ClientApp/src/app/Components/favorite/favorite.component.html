@@ -1,16 +1,19 @@
-<h1>Welcome to Bookmarks</h1>
-<h2>Select a username from the dropdown below</h2>
+<body>
+  <div class="col-10 offset-1">
+<h1 class="pt-3">Bookmark Central</h1>
+<h5>Select a username from the dropdown below to view bookmarked tickets</h5>
 <select (change)="GetUserFavorites($event)">
   <option>Select username</option>
   <option *ngFor="let userName of loginInfo" value="{{userName}}"> {{userName}}</option>
 </select>
-<div *ngFor="let t of Tickets">
+<br>
+<br>
+<div class="card mb-3 p-3 pb-2 backgrounds"*ngFor="let t of Tickets">
   <p>User Id: {{t.userId}}</p>
   <p>Date Submitted: {{t.dateSubmitted | date}}</p>
-  <p>Issue: {{t.fullIssue}}</p>
-
-  <hr>
+  <p class="pb-1">Issue: {{t.fullIssue}}</p>
 
 
 </div>
-
+</div>
+</body>

@@ -1,18 +1,25 @@
-<p>Enter userID</p>
+<div class="col-10 offset-1">
+  <p>Enter userID</p>
 <input type="text" [(ngModel)]="UserId"/>
-<h1>Welcome to the Help Desk Ticket Center</h1>
+<h1 class="text-center">Welcome to the Globex Ticket Center</h1>
+<img offset0 src="assets/Hands.png" width="100%" class="pb-2">
+<h3>Help Globex, help you. Submit a ticket. </h3>
+<h5>And remember, Globex cares!</h5>
 <div *ngFor="let a of Tickets; index as i" class="row">
 
   <p class="card backgrounds"  (click)="select(i)"> Ticket #{{i+1}} <br> User: {{ a.userId }} <br> {{ a.priority }} <br>Subject: {{ a.subjectBrief }}</p>
-  <div  *ngIf="i==selectedIndex" class="offset-1 col-11">
+  <div  *ngIf="i==selectedIndex" class="offset-1 col-11 pb-4">
   <p>   Date Submitted: {{ a.dateSubmitted | date}}<br>email response to: {{ a.email }} </p>
   <p>{{ a.fullIssue }}</p>
   <p>Enter resolution for ticket</p>
   <input type="text" />
   <button (click)="DeleteTicket(a.id)">Resolve Ticket</button>
   <br>
-  <button (click)="unselect(i)">Collapse</button>
-  <button (click)="AddToFav(a.id)">Bookmark</button>
+  <hr class="col-7">
+  <div class="offset-2 space">
+    <button (click)="unselect(i)">Collapse</button> &emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;
+    <button (click)="AddToFav(a.id)">Bookmark</button>
+  </div>
   <!-- <button (click)="DeleteTicket()">x</button> -->
   </div>
 </div>
@@ -27,28 +34,28 @@
   </button>
 
   <div id="demo" class="collapse">
-    <p>Enter user Id</p>
+    <p  class="m-0">Enter user Id</p>
     <input type="text" [(ngModel)]="newTicket.userId"/>
-
-    <p>Select the priority level</p>
+    <br>    <br>
+    <p  class="m-0">Select the priority level</p>
     <select name="Priority" [(ngModel)]="newTicket.priority">
       <option value="1">Low Priority</option>
       <option value="2">Moderate Priority</option>
       <option value="3">High Priority</option>
       <option value="4">Critical Priority</option>
     </select>
-
-    <p>Enter email</p>
+    <br>    <br>
+    <p class="m-0">Enter email</p>
     <input type="text" [(ngModel)]="newTicket.email"/>
-
-    <p>Enter brief description of the issue (limit 100 characters)</p>
+    <br>    <br>
+    <p class="m-0">Enter brief description of the issue (limit 100 characters)</p>
     <input type="text" [(ngModel)]="newTicket.subjectBrief"/>
-
-    <p>Enter the full issue </p>
+    <br>    <br>
+    <p class="m-0">Enter the full issue </p>
     <input type="text" [(ngModel)]="newTicket.fullIssue"/>
     <br><br>
 
-    <p>Enter the date Submitted</p>
+    <p class="m-0">Enter the date Submitted</p>
     <input type="date" [(ngModel)]="newTicket.dateSubmitted"/>
 
 
@@ -57,8 +64,8 @@
 
     <p>Open or closed</p>
     <select name="openOrClosed" [(ngModel)]="newTicket.open">
-      <option value="true">true</option>
-      <option value="false">false</option>
+      <option value="true">Open</option>
+      <option value="false">Closed</option>
     </select>
 
 
@@ -68,3 +75,4 @@
 
 
 <!-- <p>Ticket works!</p> -->
+</div>
