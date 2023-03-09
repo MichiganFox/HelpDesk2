@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -17,7 +18,9 @@ export class TicketService {
     return this.http.get<Ticket[]>(`${this.baseUrl}api/Ticket`, {});
   }
   CreateTicket(newTicket:Ticket):Observable<Ticket>{
-    return this.http.post<Ticket>(`${this.baseUrl}api/Ticket?_userId=${newTicket.userId}&_email=${newTicket.email}&_priority=${newTicket.priority}&_dateSubmitted=${newTicket.dateSubmitted}&_dateCompleted=${newTicket.dateCompleted}&_subjectBrief=${newTicket.subjectBrief}&_fullIssue=${newTicket.fullIssue}&_open=${newTicket.open}`,{});
+    let datePipe:DatePipe=new DatePipe('en-US');
+    // datePipe.transform(newTicket.dateCompleted, 'short')
+    return this.http.post<Ticket>(`${this.baseUrl}api/Ticket?_userId=${newTicket.userId}&_email=${newTicket.email}&_priority=${newTicket.priority}&_dateSubmitted=${newTicket.dateSubmitted}&_dateCompleted=${datePipe.transform(newTicket.dateCompleted, 'short')}&_subjectBrief=${newTicket.subjectBrief}&_fullIssue=${newTicket.fullIssue}&_open=${newTicket.open}`,{});
   }
   DeleteTicket(ticketId: number){
     return this.http.delete(`${this.baseUrl + this.endpoint}/delete/${ticketId}`);

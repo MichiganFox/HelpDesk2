@@ -25,6 +25,7 @@ export class TicketComponent implements OnInit {
   }
 
   CreateTicket(): void {
+    this.newTicket.dateCompleted= new Date('1995-12-17T03:24:00');
     this.ticketService
       .CreateTicket(this.newTicket)
       .subscribe((response: Ticket) => {

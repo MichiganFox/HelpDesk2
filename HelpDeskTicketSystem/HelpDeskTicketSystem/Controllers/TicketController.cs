@@ -42,11 +42,18 @@ namespace HelpDeskTicketSystem.Controllers
         public Ticket DeleteTicket(int id) //, int userId
         {
             Ticket result = null;
-            Favorite test1 = null;
+            List<Favorite> test1 = null;
 
             result = dbContext.Tickets.FirstOrDefault(t => t.Id == id);
-            test1= dbContext.Favorites.FirstOrDefault(t => t.Id==id);
-            dbContext.Favorites.Remove(test1);
+            test1 = dbContext.Favorites.Where(f => f.TicketId == id).ToList();
+            
+            foreach (Favorite f in test1)
+            {
+
+            dbContext.Favorites.Remove(f);
+            }
+
+
             dbContext.Tickets.Remove(result);
             dbContext.SaveChanges();
 

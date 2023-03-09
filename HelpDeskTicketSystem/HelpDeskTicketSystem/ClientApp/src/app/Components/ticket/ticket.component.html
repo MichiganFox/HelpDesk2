@@ -11,7 +11,7 @@
   <input type="text" />
   <button (click)="DeleteTicket(a.id)">Resolve Ticket</button>
   <br>
-  <button (click)="unselect(i)">Close</button>
+  <button (click)="unselect(i)">Collapse</button>
   <button (click)="AddToFav(a.id)">Bookmark</button>
   <!-- <button (click)="DeleteTicket()">x</button> -->
   </div>
@@ -52,8 +52,8 @@
     <input type="date" [(ngModel)]="newTicket.dateSubmitted"/>
 
 
-    <p>Enter the date completed</p>
-    <input type="date" [(ngModel)]="newTicket.dateCompleted"/>
+    <!-- <p>Enter the date completed</p>
+    <input type="date" [(ngModel)]="newTicket.dateCompleted"/> -->
 
     <p>Open or closed</p>
     <select name="openOrClosed" [(ngModel)]="newTicket.open">

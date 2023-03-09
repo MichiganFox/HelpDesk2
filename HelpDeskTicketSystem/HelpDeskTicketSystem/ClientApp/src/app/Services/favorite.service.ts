@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -16,6 +17,7 @@ export class FavoriteService {
   }
 
   CreateFavorite(newFavorite:Favorite):Observable<Favorite>{
+
     return this.http.post<Favorite>(`${this.baseUrl}api/Favorite?_uid=${newFavorite.uid}&_ticketId=${newFavorite.ticketId}`,{})
   }
 

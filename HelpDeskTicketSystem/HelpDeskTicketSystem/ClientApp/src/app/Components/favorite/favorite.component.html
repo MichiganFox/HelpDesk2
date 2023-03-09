@@ -1,6 +1,7 @@
 <h1>Welcome to Bookmarks</h1>
 <h2>Select a username from the dropdown below</h2>
 <select (change)="GetUserFavorites($event)">
+  <option>Select username</option>
   <option *ngFor="let userName of loginInfo" value="{{userName}}"> {{userName}}</option>
 </select>
 <div *ngFor="let t of Tickets">
