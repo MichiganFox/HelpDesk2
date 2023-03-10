@@ -2,3 +2,7 @@
 .backgrounds{
     background-color: rgb(235, 235, 235);
   }
+.epic { background: -webkit-linear-gradient(360deg, #01a99c 10%, #0698b1 360%); /* Chrome 10+, Saf5.1+ */ background: -moz-linear-gradient(360deg, #01a99c 10%, #0698b1 360%); /* FF3.6+ */ background: linear-gradient(360deg, #01a99c 10%, #0698b1 360%); /* W3C */ }
+.trust {background: -webkit-linear-gradient(360deg, #38aecc 10%, #347fb9 360%); /* Chrome 10+, Saf5.1+ */ background: -moz-linear-gradient(360deg, #38aecc 10%, #347fb9 360%); /* FF3.6+ */ background: linear-gradient(360deg, #38aecc 10%, #347fb9 360%); /* W3C */ }
+.haze { background: -webkit-linear-gradient(360deg,#949494 10%,#efefef 360%); background: linear-gradient(360deg,#949494 10%,#efefef 360%); }
+.ice { background: -webkit-linear-gradient(360deg,#e9fbcf 10%,#1d7d8e 360%); background: linear-gradient(360deg,#e9fbcf 10%,#1d7d8e 360%); }
